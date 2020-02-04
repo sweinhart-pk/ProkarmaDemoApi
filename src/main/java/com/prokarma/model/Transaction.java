@@ -2,7 +2,10 @@ package com.prokarma.model;
 
 import java.util.Date;
 
+import javax.persistence.GeneratedValue;
+
 public class Transaction {
+	@GeneratedValue
 	private Integer id;
 	private String type; //(purchase, trade, service)
 	private Date date;

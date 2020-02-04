@@ -3,7 +3,10 @@ package com.prokarma.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.GeneratedValue;
+
 public class Customer {
+	@GeneratedValue
 	private Integer id;
 	private String name;
 	private String phone;

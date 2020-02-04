@@ -1,6 +1,9 @@
 package com.prokarma.model;
 
+import javax.persistence.GeneratedValue;
+
 public class Vehicle {
+	@GeneratedValue
 	private Integer id;
 	private Double price;
 	private String vin;
