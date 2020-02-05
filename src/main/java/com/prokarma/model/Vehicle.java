@@ -1,13 +1,18 @@
 package com.prokarma.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Vehicle {
+	@Id
 	@GeneratedValue
 	private Integer id;
+	private Integer ownerId;
 	private Double price;
 	private String vin;
-	private String type; //(coupe, sedan, truck, suv, muscle)
+	private String vehicleType; //(coupe, sedan, truck, suv, muscle)
 	private Integer numSeats;
 	private String engine;
 	private Integer horsepower;
@@ -15,12 +20,19 @@ public class Vehicle {
 	private String make;
 	private String model;
 	private String color;
+	private Integer year;
 	
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public Integer getOwnerId() {
+		return ownerId;
+	}
+	public void setOwnerId(Integer ownerId) {
+		this.ownerId = ownerId;
 	}
 	public Double getPrice() {
 		return price;
@@ -34,12 +46,7 @@ public class Vehicle {
 	public void setVin(String vin) {
 		this.vin = vin;
 	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
+
 	public Integer getNumSeats() {
 		return numSeats;
 	}
@@ -81,6 +88,18 @@ public class Vehicle {
 	}
 	public void setColor(String color) {
 		this.color = color;
+	}
+	public String getVehicleType() {
+		return vehicleType;
+	}
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+	public Integer getYear() {
+		return year;
+	}
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 	
 	
