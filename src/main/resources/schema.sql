@@ -14,7 +14,8 @@ create table if not exists customer_transaction (
 
 create table if not exists vehicle (
   id INTEGER PRIMARY KEY,
-  ownerId INTEGER FOREIGN KEY,
+  ownerId INTEGER,
+  CONSTRAINT FOREIGN KEY (ownerId) REFERENCES customer(id),
   price DOUBLE,
   vin VARCHAR(255),
   vehicleType VARCHAR(255),
