@@ -9,7 +9,7 @@ create table if not exists customer_transaction (
   id INTEGER PRIMARY KEY,
   customerId INTEGER,
   CONSTRAINT FOREIGN KEY (customerId) REFERENCES customer(id),
-  vehicleId VARCHAR(255) UNIQUE,
+  vehicleId VARCHAR(255),
   transactionType VARCHAR(255),
   transactionDate VARCHAR(255),
   amtPaid DOUBLE
@@ -21,7 +21,7 @@ create table if not exists vehicle (
   CONSTRAINT FOREIGN KEY (ownerId) REFERENCES customer(id),
   price DOUBLE,
   numSeats INTEGER,
-  vin VARCHAR(255),
+  vin VARCHAR(255) UNIQUE,
   vehicleType VARCHAR(255),
   engine VARCHAR(255),
   horsepower VARCHAR(255),

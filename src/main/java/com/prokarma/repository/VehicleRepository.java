@@ -9,4 +9,5 @@ import com.prokarma.model.Vehicle;
 public interface VehicleRepository extends JpaRepository<Vehicle, Integer>{
 	public List<Vehicle> findByOwnerId(Integer ownerId);
 	
+	public Vehicle getById(Integer id);
 }

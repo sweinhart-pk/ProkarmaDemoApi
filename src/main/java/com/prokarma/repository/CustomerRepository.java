@@ -6,4 +6,6 @@ import com.prokarma.model.Customer;
 
 public interface CustomerRepository extends JpaRepository<Customer, Integer>{
 	public Customer getCustomerByName(String name);
+	
+	public Customer getById(Integer id);
 }
