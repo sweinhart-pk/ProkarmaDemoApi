@@ -1,10 +1,12 @@
 package com.prokarma.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -18,7 +20,7 @@ public class Customer {
 	private String zipcode;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "ownerId")
-	private List<Vehicle> vehiclesOwned;
+	private List<Vehicle> vehiclesOwned = new ArrayList<>();
 	
 	public void addVehicle(Vehicle vehicle) {
 		vehiclesOwned.add(vehicle);
@@ -51,12 +53,12 @@ public class Customer {
 	public void setZipcode(String zipcode) {
 		this.zipcode = zipcode;
 	}
-	/*
+	
 	public List<Vehicle> getVehiclesOwned() {
 		return vehiclesOwned;
 	}
 	public void setVehiclesOwned(List<Vehicle> vehiclesOwned) {
 		this.vehiclesOwned = vehiclesOwned;
 	}
-	*/
+	
 }

@@ -1,10 +1,14 @@
 package com.prokarma.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "vehicle")
 public class Vehicle {
 	@Id
 	@GeneratedValue
@@ -21,7 +25,6 @@ public class Vehicle {
 	private String model;
 	private String color;
 	private Integer year;
-	
 	public Integer getId() {
 		return id;
 	}
@@ -46,7 +49,12 @@ public class Vehicle {
 	public void setVin(String vin) {
 		this.vin = vin;
 	}
-
+	public String getVehicleType() {
+		return vehicleType;
+	}
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
+	}
 	public Integer getNumSeats() {
 		return numSeats;
 	}
@@ -89,18 +97,10 @@ public class Vehicle {
 	public void setColor(String color) {
 		this.color = color;
 	}
-	public String getVehicleType() {
-		return vehicleType;
-	}
-	public void setVehicleType(String vehicleType) {
-		this.vehicleType = vehicleType;
-	}
 	public Integer getYear() {
 		return year;
 	}
 	public void setYear(Integer year) {
 		this.year = year;
-	}
-	
-	
+	}	
 }

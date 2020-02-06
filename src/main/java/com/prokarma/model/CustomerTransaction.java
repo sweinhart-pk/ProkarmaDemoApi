@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -11,6 +12,8 @@ public class CustomerTransaction {
 	@Id
 	@GeneratedValue
 	private Integer id;
+	private Integer customerId;
+	private String vehicleId;
 	private String transactionType; //(purchase, trade, service)
 	private Date transactionDate;
 	private Double amtPaid;
@@ -20,17 +23,29 @@ public class CustomerTransaction {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getType() {
+	public Integer getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+	public String getVehicleId() {
+		return vehicleId;
+	}
+	public void setVehicleId(String vehicleId) {
+		this.vehicleId = vehicleId;
+	}
+	public String getTransactionType() {
 		return transactionType;
 	}
-	public void setType(String type) {
-		this.transactionType = type;
+	public void setTransactionType(String transactionType) {
+		this.transactionType = transactionType;
 	}
-	public Date getDate() {
+	public Date getTransactionDate() {
 		return transactionDate;
 	}
-	public void setDate(Date date) {
-		this.transactionDate = date;
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
 	}
 	public Double getAmtPaid() {
 		return amtPaid;
@@ -38,6 +53,5 @@ public class CustomerTransaction {
 	public void setAmtPaid(Double amtPaid) {
 		this.amtPaid = amtPaid;
 	}
-	
 	
 }
