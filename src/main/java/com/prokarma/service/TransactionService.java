@@ -73,6 +73,7 @@ public class TransactionService {
 		transaction.setTransactionType(ApiConstants.TRADE);
 		transaction.setTransactionDate(new Date());
 		purchase.setOwnerId(customer.getId());
+		trade.setPrice(trade.getPrice() * .7);
 		trade.setOwnerId(0);
 		vehicleRepository.save(trade);
 		vehicleRepository.save(purchase);

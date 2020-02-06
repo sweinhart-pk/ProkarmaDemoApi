@@ -1,0 +1,672 @@
+swagger: '2.0'
+info:
+  title: Prokama Test Api
+  description: This Api simulates a customer/dealer relationship
+  version: 1.0.0
+host: localhost:8080
+basePath: /dealer
+tags:
+  - name: Customer
+    description: Customer endpoint
+  - name: Vehicle
+    description: Vehicle endpoint
+  - name: Transaction
+    description: Transaction endpoint
+schemes:
+  - http
+paths:
+  /customer:
+    post:
+      tags:
+        - Customer
+      summary: Create a Customer
+      description: 'Create a Customer'
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            required:
+              - name
+              - phone
+              - zipcode
+            properties:
+              name:
+                type: string
+                example: John Doe
+              phone:
+                type: string
+                example: 123-456-7890
+              zipcode:
+                type: string
+                example: 98043
+      responses:
+        '200':
+          description: Customer Created
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 0
+              name:
+                type: string
+                example: John Doe
+              phone:
+                type: string
+                example: 123-456-7890
+              zipcode:
+                type: string
+                example: 98043
+        '500':
+          description: Bad Request
+          
+    get:
+      tags:
+        - Customer
+      summary: Get all Customers
+      description: 'Get all Customers'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: List of all Customers
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 0
+              name:
+                type: string
+                example: John Doe
+              phone:
+                type: string
+                example: 123-456-7890
+              zipcode:
+                type: string
+                example: 98043
+                
+  '/customer/{id}':
+    get:
+      tags:
+        - Customer
+      summary: Get User by Id
+      description: 'Get User by Id'
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Get User Success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 0
+              name:
+                type: string
+                example: John Doe
+              phone:
+                type: string
+                example: 123-456-7890
+              zipcode:
+                type: string
+                example: 98043
+        '500':
+          description: Bad Request
+
+    delete:
+      tags:
+        - Customer
+      summary: Delete User by Id
+      description: 'Delete User by Id'
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Delete User Success
+        '500':
+          description: Bad Request
+          
+  /vehicle:
+    get:
+      tags:
+        - Vehicle
+      summary: Get all Vehicles
+      description: 'Get all Vehicles'
+      produces:
+        - appliction/json
+      responses:
+        '200':
+          description: Get Vehicles Success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 0
+              price:
+                type: number
+                example: 60000.00
+              vin:
+                type: string
+                example: unique alphanumeric
+              vehicleType:
+                type: string
+                example: sedan
+              numSeats:
+                type: integer
+                example: 4
+              engine:
+                type: string
+                example: 3.6L V6
+              horsepower:
+                type: integer
+                example: 280
+              seatsType:
+                type: string
+                example: Fabric
+              make:
+                type: string
+                example: Ford
+              model:
+                type: string
+                example: Explorer
+              color:
+                type: string
+                example: Black
+              year:
+                type: integer
+                example: 2019
+
+    post:
+      tags:
+        - Vehicle
+      summary: Create a Vehicle
+      description: 'Create a Vehicle'
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          required: true
+          schema:
+            type: object
+            required:
+              - price
+              - vin
+              - vehicleType
+              - numSeats
+              - engine
+              - horsepower
+              - seatsType
+              - make
+              - model
+              - color
+              - year
+            properties:
+              price:
+                type: number
+                example: 60000.00
+              vin:
+                type: string
+                example: unique alphanumeric
+              vehicleType:
+                type: string
+                example: sedan
+              numSeats:
+                type: integer
+                example: 4
+              engine:
+                type: string
+                example: 3.6L V6
+              horsepower:
+                type: integer
+                example: 280
+              seatsType:
+                type: string
+                example: Fabric
+              make:
+                type: string
+                example: Ford
+              model:
+                type: string
+                example: Explorer
+              color:
+                type: string
+                example: Black
+              year:
+                type: integer
+                example: 2019
+      responses:
+        '200':
+          description: Add Vehicle Success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 0
+              price:
+                type: number
+                example: 60000.00
+              vin:
+                type: string
+                example: unique alphanumeric
+              vehicleType:
+                type: string
+                example: sedan
+              numSeats:
+                type: integer
+                example: 4
+              engine:
+                type: string
+                example: 3.6L V6
+              horsepower:
+                type: integer
+                example: 280
+              seatsType:
+                type: string
+                example: Fabric
+              make:
+                type: string
+                example: Ford
+              model:
+                type: string
+                example: Explorer
+              color:
+                type: string
+                example: Black
+              year:
+                type: integer
+                example: 2019
+        '500':
+          description: Bad Request
+          
+  '/vehicle/{id}':
+    get:
+      tags:
+        - Vehicle
+      summary: Get Vehicle by Id
+      description: 'Get Vehicle by Id'
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Get Vehicle Success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 0
+              price:
+                type: number
+                example: 60000.00
+              vin:
+                type: string
+                example: unique alphanumeric
+              vehicleType:
+                type: string
+                example: sedan
+              numSeats:
+                type: integer
+                example: 4
+              engine:
+                type: string
+                example: 3.6L V6
+              horsepower:
+                type: integer
+                example: 280
+              seatsType:
+                type: string
+                example: Fabric
+              make:
+                type: string
+                example: Ford
+              model:
+                type: string
+                example: Explorer
+              color:
+                type: string
+                example: Black
+              year:
+                type: integer
+                example: 2019
+        '500':
+          description: Bad Request
+          
+    delete:
+      tags:
+        - Vehicle
+      summary: Delete Vehicle by Id
+      description: 'Delete Vehicle by Id'
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Delete Vehicle Success
+        '500':
+          description: Bad Request
+          
+  '/vehicle/owner/{id}':
+    get:
+      tags:
+        - Vehicle
+      summary: Get Vehicles by ownerId
+      description: 'Get Vehicle by ownerId'
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+        '200':
+          description: Get Vehicle Success
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 0
+              price:
+                type: number
+                example: 60000.00
+              vin:
+                type: string
+                example: unique alphanumeric
+              vehicleType:
+                type: string
+                example: sedan
+              numSeats:
+                type: integer
+                example: 4
+              engine:
+                type: string
+                example: 3.6L V6
+              horsepower:
+                type: integer
+                example: 280
+              seatsType:
+                type: string
+                example: Fabric
+              make:
+                type: string
+                example: Ford
+              model:
+                type: string
+                example: Explorer
+              color:
+                type: string
+                example: Black
+              year:
+                type: integer
+                example: 2019
+        '500':
+          description: Bad Request
+          
+  /transaction:
+    get:
+      tags:
+        - Transaction
+      summary: Get all Transactions
+      description: Get all Transactions
+      produces:
+        - applicaton/json
+      responses:
+          '200':
+            description: Get Vehicles Success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 0
+                customerId:
+                  type: integer
+                  example: 0
+                vehicleId:
+                  type: integer
+                  example: 0
+                transactionType:
+                  type: string
+                  example: Purchase
+                transactionDate:
+                  type: string
+                  example: 2020-02-06T20:54:32.225+0000
+             
+  '/transaction/{id}':
+    get:
+      tags:
+        - Transaction
+      summary: Get Transaction by Id
+      description: Get Transaction by Id
+      produces:
+        - applicaton/json
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+          '200':
+            description: Get Transaction Success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 0
+                customerId:
+                  type: integer
+                  example: 0
+                vehicleId:
+                  type: integer
+                  example: 0
+                transactionType:
+                  type: string
+                  example: Purchase
+                transactionDate:
+                  type: string
+                  example: 2020-02-06T20:54:32.225+0000
+          '500':
+            description: Bad Request
+            
+  '/transaction/customer/{id}':
+    get:
+      tags:
+        - Transaction
+      summary: Get all Transactions by Customer Id
+      description: Get all Transactions by Customer Id
+      produces:
+        - applicaton/json
+      parameters:
+        - in: path
+          name: id
+          type: integer
+          required: true
+      responses:
+          '200':
+            description: Get Transaction Success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 0
+                customerId:
+                  type: integer
+                  example: 0
+                vehicleId:
+                  type: integer
+                  example: 0
+                transactionType:
+                  type: string
+                  example: Purchase
+                transactionDate:
+                  type: string
+                  example: 2020-02-06T20:54:32.225+0000
+          '500':
+            description: Bad Request
+            
+  '/transaction/purchase':
+    post:
+      tags:
+        - Transaction
+      summary: Purchase a vehicle from dealer
+      description: Purchase a vehicle from dealer
+      produces:
+        - applicaton/json
+      parameters:
+        - in: query
+          name: customerId
+          type: integer
+          description: Customer Id
+          required: true
+        - in: query
+          name: purchaseId
+          type: integer
+          description: Id of purchasable vehicle
+          required: true
+      responses:
+          '200':
+            description: Get Transaction Success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 0
+                customerId:
+                  type: integer
+                  example: 0
+                vehicleId:
+                  type: integer
+                  example: 0
+                transactionType:
+                  type: string
+                  example: Purchase
+                transactionDate:
+                  type: string
+                  example: 2020-02-06T20:54:32.225+0000
+          '500':
+            description: Bad Request
+            
+  '/transaction/trade':
+    post:
+      tags:
+        - Transaction
+      summary: Tradein Customer Vehicle with Dealer Vehicle
+      description: Tradein Customer Vehicle with Dealer Vehicle
+      produces:
+        - applicaton/json
+      parameters:
+        - in: query
+          name: customerId
+          type: integer
+          description: Customer Id
+          required: true
+        - in: query
+          name: tradeId
+          type: integer
+          description: Id of owner vehicle
+          required: true
+        - in: query
+          name: purchaseId
+          type: integer
+          description: Id of purchasable vehicle
+          required: true
+      responses:
+          '200':
+            description: Get Transaction Success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 0
+                customerId:
+                  type: integer
+                  example: 0
+                vehicleId:
+                  type: integer
+                  example: 0
+                transactionType:
+                  type: string
+                  example: Trade
+                transactionDate:
+                  type: string
+                  example: 2020-02-06T20:54:32.225+0000
+          '500':
+            description: Bad Request
+            
+  '/transaction/service':
+    post:
+      tags:
+        - Transaction
+      summary: Service a Customer Vehicle
+      description: Service a Customer Vehicle
+      produces:
+        - applicaton/json
+      parameters:
+        - in: query
+          name: customerId
+          type: integer
+          description: Customer Id
+          required: true
+        - in: query
+          name: vehicleId
+          type: integer
+          description: Id of owner vehicle
+          required: true
+        - in: query
+          name: serviceType
+          type: string
+          description: Type of Service i.e. oil, tires, etc
+          required: true
+      responses:
+          '200':
+            description: Get Transaction Success
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  example: 0
+                customerId:
+                  type: integer
+                  example: 0
+                vehicleId:
+                  type: integer
+                  example: 0
+                transactionType:
+                  type: string
+                  example: Service
+                transactionDate:
+                  type: string
+                  example: 2020-02-06T20:54:32.225+0000
+          '500':
+            description: Bad Request
+    
