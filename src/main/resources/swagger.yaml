@@ -3,7 +3,7 @@ info:
   title: Prokama Test Api
   description: This Api simulates a customer/dealer relationship
   version: 1.0.0
-host: localhost:8080
+host: ProkarmaDemoApi-env.e2etzrukxg.us-west-2.elasticbeanstalk.com 
 basePath: /dealer
 tags:
   - name: Customer
@@ -13,7 +13,7 @@ tags:
   - name: Transaction
     description: Transaction endpoint
 schemes:
-  - http
+  - https
 paths:
   /customer:
     post:
