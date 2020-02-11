@@ -13,7 +13,7 @@ tags:
   - name: Transaction
     description: Transaction endpoint
 schemes:
-  - https
+  - http
 paths:
   /customer:
     post:

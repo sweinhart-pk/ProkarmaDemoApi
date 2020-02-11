@@ -34,7 +34,7 @@ public class CustomerService {
 	}
 	
 	public Boolean deleteCustomer(Integer id) {
-		Customer customer = customerRepository.getOne(id);
+		Customer customer = customerRepository.getById(id);
 		if (customer != null && customer.getVehiclesOwned().isEmpty()) {
 			customerRepository.deleteById(id);
 			return true;

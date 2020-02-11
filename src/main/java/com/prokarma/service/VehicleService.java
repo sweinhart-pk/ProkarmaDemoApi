@@ -30,6 +30,8 @@ public class VehicleService {
 	}
 	
 	public Vehicle createVehicle(Vehicle vehicle) {
+		if (vehicle.getOwnerId() != 0)
+			return null;
 		try {
 			vehicleRepository.save(vehicle);
 			return vehicleRepository.save(vehicle);
